@@ -50,7 +50,16 @@ $(document).ready(function () {
 	});
 });
 
-
-
-
+// Show map
+$(window).on('load', function(){
+	var bond = $("#bond");
+	var bondTop = bond.offset().top;
+	$(window).bind("scroll",function () {
+		var windowTop = $(this).scrollTop();
+		if (windowTop >bondTop) {
+			$("#map").html('<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Addec6a5ddd30432d2b2e7b30d5bc85425ab1ed26c0f757ffbdb2bc71ae921d91&amp;width=100%25&amp;height=640&amp;lang=ru_RU&amp;scroll=false"></script>')
+			$(window).unbind("scroll")
+		}
+	});
+});
 
